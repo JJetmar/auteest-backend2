@@ -1,0 +1,106 @@
+.entityTree {
+  :global {
+  .ant-tree-child-tree {
+    padding: 0;
+  }
+    li.ant-tree-treenode-disabled > span:not(.ant-tree-switcher),
+    li.ant-tree-treenode-disabled > .ant-tree-node-content-wrapper,
+    li.ant-tree-treenode-disabled > .ant-tree-node-content-wrapper span {
+    color: #333 !important;
+  }
+  .ant-tree-title {
+      &>.ant-divider {
+        margin: -26px 0 0 -25px;
+        display: inline-block!important;
+        text-align: left;
+        .ant-divider-with-text {
+          display: inline-block !important;
+        }
+        .ant-divider-inner-text {
+          padding: 0 13px!important;
+        }
+        &:before, &:after {
+          border-color: lightgray;
+        }
+        &:before {
+          border: 0 solid lightgray;
+          border-width: 0 0 1px 1px;
+          left: 1px;
+          top: -16px !important;
+          height: 19px;
+          display: block;
+          width: 12px;
+          float: left;
+        }
+      }
+      &> li:first-child {
+        padding-top: 4px;
+      }
+    }
+    .ant-tree-node-content-wrapper {
+      height: auto !important;
+      //padding-left: 14px !important;
+    }
+    .ant-tree-treenode-disabled {
+      .ant-tree-node-content-wrapper {
+        &, & span {
+          cursor: auto!important;
+        }
+      }
+    }
+    .ant-tree-child-tree > li:first-child {
+      padding-top: 0px;
+    }
+    .ant-tree-treenode-switcher-open,
+    .ant-tree-treenode-switcher-close {
+      padding-top: 4px !important;
+      padding-left: 19px !important;
+      position: relative;
+      &:not(.ant-tree-treenode-disabled) {
+        & > .ant-tree-switcher {
+          &:not(.ant-tree-switcher-noop) {
+            background: white;
+            z-index: 2;
+            border-radius: 100px;
+            border: 1px solid lightgray !important;
+            width: 18px !important;
+            height: 18px !important;
+            margin: 4px 9px 0 -3px !important;
+            line-height: 15px;
+          }
+        }
+        &:before, &:after {
+          content: "";
+          border: 0 solid lightgray;
+          border-left-width: 1px;
+          position: absolute;
+          left: 24px;
+          top: 0;
+          display: block;
+          height: 100%;
+        }
+        &:after {
+          border-left-width: 0;
+          border-top-width: 1px;
+          height: 0;
+          top: 16px;
+          left: 24px;
+          width: 16px;
+        }
+        &:before {
+          top: 0px;
+        }
+        &:first-child {
+          &:before, &:after {
+            //top: 1em;
+          }
+        }
+        &:last-child {
+          &:before, &:after {
+            height: 17px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "test-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node $NODE_DEBUG_OPTION index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Josef Jetmar",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "express-json-validator-middleware": "^2.0.0"
+  }
+}

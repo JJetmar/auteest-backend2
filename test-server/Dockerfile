@@ -15,7 +15,7 @@ WORKDIR /usr/src/app
 # add source
 CMD ["npm", "start"]
 
-EXPOSE 3000
+EXPOSE 4000
 EXPOSE 9229
 
 # COPY ./client .
