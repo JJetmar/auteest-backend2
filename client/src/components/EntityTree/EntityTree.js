@@ -64,7 +64,7 @@ class EntityTree extends Component {
     } else {
       attributes.push(dragAttribute);
       if (lastParent) {
-        lastParent.declaration.type = "string";
+        lastParent.declaration.typek = "string";
       }
       dropAttribute.declaration.type = "object"
     }
@@ -83,7 +83,7 @@ class EntityTree extends Component {
     debugger
     this.setState(state => {
       state.tree.attributes.push({
-        name: `New parameter ${this.state.newAttribute}`, parentId, pseudoId: uuidv1(), declaration: {
+        name: `NewParameter${this.state.newAttribute}`, parentId, pseudoId: uuidv1(), declaration: {
           type: "string"
         }
       });
@@ -96,7 +96,6 @@ class EntityTree extends Component {
     const childrenAttributes = this.props.tree.attributes.filter(
       attr => attr.parentId === (attributeToDelete.id || attributeToDelete.pseudoId)
     );
-
 
     let deleteConfirmed = false;
     if (childrenAttributes.length > 0) {

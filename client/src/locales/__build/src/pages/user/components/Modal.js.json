@@ -1,0 +1,98 @@
+{
+  "Name": {
+    "origin": [
+      [
+        "src/pages/user/components/Modal.js",
+        44
+      ]
+    ]
+  },
+  "NickName": {
+    "origin": [
+      [
+        "src/pages/user/components/Modal.js",
+        54
+      ]
+    ]
+  },
+  "Gender": {
+    "origin": [
+      [
+        "src/pages/user/components/Modal.js",
+        64
+      ]
+    ]
+  },
+  "Male": {
+    "origin": [
+      [
+        "src/pages/user/components/Modal.js",
+        76
+      ]
+    ]
+  },
+  "Female": {
+    "origin": [
+      [
+        "src/pages/user/components/Modal.js",
+        79
+      ]
+    ]
+  },
+  "Age": {
+    "origin": [
+      [
+        "src/pages/user/components/Modal.js",
+        84
+      ]
+    ]
+  },
+  "Phone": {
+    "origin": [
+      [
+        "src/pages/user/components/Modal.js",
+        95
+      ]
+    ]
+  },
+  "The input is not valid phone!": {
+    "origin": [
+      [
+        "src/pages/user/components/Modal.js",
+        102
+      ]
+    ]
+  },
+  "Email": {
+    "origin": [
+      [
+        "src/pages/user/components/Modal.js",
+        107
+      ]
+    ]
+  },
+  "The input is not valid E-mail!": {
+    "origin": [
+      [
+        "src/pages/user/components/Modal.js",
+        114
+      ]
+    ]
+  },
+  "Address": {
+    "origin": [
+      [
+        "src/pages/user/components/Modal.js",
+        119
+      ]
+    ]
+  },
+  "Pick an address": {
+    "origin": [
+      [
+        "src/pages/user/components/Modal.js",
+        131
+      ]
+    ]
+  }
+}

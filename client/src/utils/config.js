@@ -1,6 +1,6 @@
 module.exports = {
-  siteName: 'Auteest',
-  copyright: 'Ant Design Admin  © 2018 zuiidea',
+  siteName: 'AutoTest',
+  copyright: '© 2019 Josef Jetmar',
   logoPath: '/logo.svg',
   apiPrefix: '/api',
   fixedHeader: true, // sticky primary layout header
@@ -9,8 +9,7 @@ module.exports = {
   layouts: [
     {
       name: 'primary',
-      include: [/.*/],
-      exclude: [/(\/(en|cs))*\/login/],
+      include: [/.*/]
     },
   ],
 
@@ -22,13 +21,13 @@ module.exports = {
         key: 'en',
         title: 'English',
         flag: '/america.svg',
-      },
+      }/*,
       {
         key: 'cs',
         title: 'Čeština',
         flag: '/czech.svg',
-      },
+      },*/
     ],
-    defaultLanguage: 'cs',
+    defaultLanguage: 'en',
   },
 }

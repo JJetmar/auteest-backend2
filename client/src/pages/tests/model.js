@@ -12,7 +12,7 @@ const DEFAULT_PAGINATION = {
 };
 
 export default modelExtend(model, {
-  namespace: 'entitySchema',
+  namespace: 'tests',
   state: {
     list: [],
     pagination: {
@@ -26,7 +26,8 @@ export default modelExtend(model, {
     setup({dispatch, history}) {
       history.listen(location => {
         const { query, pathname } = location;
-        if (pathMatchRegexp("/entity-schemas", pathname)) {
+
+        if (pathMatchRegexp("/tests", pathname)) {
           dispatch({
             type: 'changePage',
             payload: {
@@ -39,16 +40,46 @@ export default modelExtend(model, {
   },
   effects: {
     * showModal({payload = {}}, {call, put}) {
+      debugger
       const {modalType, itemId} = payload;
       let data;
       if (modalType === "create") {
-        data = { data: { attributes: []}};
+        data = { data: {
+          type: "rest",
+          httpMethod: "POST",
+          soapTemplate: `<?xml version="1.0"?>
+  <soap:Envelope
+    xmlns:soap="http://www.w3.org/2003/05/soap-envelope/"
+  soap:encodingStyle="http://www.w3.org/2003/05/soap-encoding">
+
+  <soap:Body>
+    <m:GetPrice xmlns:m="https://www.w3schools.com/prices">
+      <m:Item>Apples</m:Item>
+    </m:GetPrice>
+  </soap:Body>
+
+</soap:Envelope>`
+        }};
       } else {
-        data = yield call(api.entitySchemaGet, {id: itemId});
+        data = yield call(api.testGet, {id: itemId});
         if (!data) {
           throw data
         }
       }
+      debugger
+
+      const entitySchemaList = yield call(api.entitySchemaList, {
+        pageSize: 9999,
+        page: 1,
+      });
+      debugger
+
+      yield put({
+        type: 'updateState',
+        payload: {
+          entitySchemas: entitySchemaList.data
+        },
+      })
       yield put({
         type: 'updateState',
         payload: {
@@ -58,7 +89,7 @@ export default modelExtend(model, {
         },
       });
     },
-    * hideModal({}, {call, put}) {
+    *hideModal({}, {call, put}) {
       yield put({
         type: 'updateState',
         payload: {
@@ -66,29 +97,51 @@ export default modelExtend(model, {
         },
       })
     },
+    * changeType({payload = {}}, {call, put}) {
+      debugger
+      const {modalType, itemId} = payload;
+
+      yield put({
+        type: 'updateState',
+        payload: {
+          selectedItem: data.data,
+          modalType,
+          modalVisible: true
+        },
+      });
+    },
     *delete({payload}, {call, put, select}) {
-      const data = yield call(api.entitySchemaDelete, payload);
+      const data = yield call(api.testDelete, payload);
 
       if (data.success) {
         let page;
-        yield select(({entitySchema}) => {
-
-
+        yield select(({tests}) => {
+          const { pagination } = tests;
+          if (tests.list.length > 1) {
+            page = pagination.page;
+          } else {
+            page = Math.min(DEFAULT_PAGE_INDEX, pagination.page - 1);
+          }
         });
         yield put({ type: 'changePage',payload: { page } }); // refresh
       } else {
         throw data
       }
     },
+
+    *run({payload}, {call, put, select}) {
+      const data = yield call(api.testRun, payload);
+      yield put({ type: 'changePage',payload: { page } }); // refresh
+    },
     *changePage({payload}, {select, put, call}) {
       let pagination;
-      yield select((a) => {
-        pagination = a.entitySchema.pagination;
+      yield select(({tests}) => {
+        pagination = tests.pagination;
       });
 
       let page = (payload || {}).page || pagination.page || DEFAULT_PAGE_INDEX;
 
-      const listData = yield call(api.entitySchemaList, {
+      const listData = yield call(api.testList, {
         ...pagination,
         page
       });
@@ -104,9 +157,15 @@ export default modelExtend(model, {
           }
         },
       });
+      yield put({
+        type: 'updateState',
+        payload: {
+          selectedItem: null
+        }
+      });
     },
     *update({payload}, {call, put}) {
-      const data = yield call(api.entitySchemaUpdate, { attributes: [], ...payload });
+      const data = yield call(api.testUpdate, { ...payload });
       if (data.success) {
         yield put({
           type: 'updateState',
@@ -120,7 +179,8 @@ export default modelExtend(model, {
       }
     },
     * create({payload}, {call, put}) {
-      const data = yield call(api.entitySchemaCreate,{ attributes: [], ...payload });
+      const data = yield call(api.testCreate,{ ...payload });
+      debugger
       if (data.success) {
         yield put({
           type: 'updateState',
@@ -130,29 +190,6 @@ export default modelExtend(model, {
         });
         yield put({type: 'changePage', payload: { page: DEFAULT_PAGE_INDEX }}); // refresh
       }
-    },
-    *updateAttribute({payload}, {call, put}) {
-      let newTree;
-      yield select(({entitySchema}) => {
-        const { selectedItem } = entitySchema;
-        newTree = selectedItem.attributes.filter(attribute => attribute.pseudoId === payload.pseudoId).map(() => payload);
-      });
-      yield put({
-        type: 'updateState',
-        payload: {
-          selectedItem: newTree
-        }
-      });
-    },
-    *updateTree({payload}, {call, put}) {
-      let newTree = payload;
-
-      yield put({
-        type: 'updateState',
-        payload: {
-          selectedItem: newTree
-        }
-      });
     }
   }
 });

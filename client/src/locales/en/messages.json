@@ -52,6 +52,8 @@
   "Visibility": "Visibility",
   "You have viewed all notifications.": "You have viewed all notifications.",
   "entities.addAttribute": "Add attribute",
+  "entities.createEntitySchema": "Create new Entity schema",
+  "entities.updateEntitySchema": "Edit Entity schema",
   "entities.noRestrictions": "No restrictions",
   "jsonSchema.simpleTypes.boolean": "Boolean",
   "jsonSchema.simpleTypes.string": "String",

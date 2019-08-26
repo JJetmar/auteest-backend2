@@ -1,0 +1,82 @@
+{
+  "Image": {
+    "origin": [
+      [
+        "src/pages/post/components/List.js",
+        13
+      ]
+    ]
+  },
+  "Title": {
+    "origin": [
+      [
+        "src/pages/post/components/List.js",
+        18
+      ]
+    ]
+  },
+  "Author": {
+    "origin": [
+      [
+        "src/pages/post/components/List.js",
+        27
+      ]
+    ]
+  },
+  "Categories": {
+    "origin": [
+      [
+        "src/pages/post/components/List.js",
+        31
+      ]
+    ]
+  },
+  "Tags": {
+    "origin": [
+      [
+        "src/pages/post/components/List.js",
+        35
+      ]
+    ]
+  },
+  "Visibility": {
+    "origin": [
+      [
+        "src/pages/post/components/List.js",
+        39
+      ]
+    ]
+  },
+  "Comments": {
+    "origin": [
+      [
+        "src/pages/post/components/List.js",
+        43
+      ]
+    ]
+  },
+  "Views": {
+    "origin": [
+      [
+        "src/pages/post/components/List.js",
+        47
+      ]
+    ]
+  },
+  "Publish Date": {
+    "origin": [
+      [
+        "src/pages/post/components/List.js",
+        51
+      ]
+    ]
+  },
+  "Total {total} Items": {
+    "origin": [
+      [
+        "src/pages/post/components/List.js",
+        61
+      ]
+    ]
+  }
+}

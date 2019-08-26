@@ -1,0 +1,26 @@
+{
+  "Params": {
+    "origin": [
+      [
+        "src/pages/request/index.js",
+        186
+      ]
+    ]
+  },
+  "Send": {
+    "origin": [
+      [
+        "src/pages/request/index.js",
+        196
+      ]
+    ]
+  },
+  "Add Param": {
+    "origin": [
+      [
+        "src/pages/request/index.js",
+        241
+      ]
+    ]
+  }
+}

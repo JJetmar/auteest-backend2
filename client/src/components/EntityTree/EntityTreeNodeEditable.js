@@ -149,8 +149,8 @@ class EntityTreeNodeEditable extends Component {
           </Col>
         </Row>
         {/* DATA TYPE: STRING */}
-        { isType(["string"]) &&
-        <Row>
+        {
+        <Row hidden={!isType(["string"])}>
           <Col span={24}>
             <Form.Item label="Regexp" labelCol={{span: 6}} wrapperCol={{span: 18}} style={{ marginBottom: 0 }}>
               {getFieldDecorator(`attributes[${index}].declaration.pattern`, { initialValue: item.declaration.pattern })(
@@ -161,13 +161,14 @@ class EntityTreeNodeEditable extends Component {
         </Row>
         }
         {/* DATA TYPE: INTEGER or STRING */}
-        { isType(["integer", "string", "number"]) &&
-          <Row>
+        {
+          <Row hidden={!isType(["string", "integer", "number"])}>
             <Col span={12}>
               <Form.Item label="Minimum" labelCol={{span: 12}} wrapperCol={{span: 12}} style={{ marginBottom: 0 }}>
                 {getFieldDecorator(`attributes[${index}].declaration.minLength`, { initialValue: item.declaration.minLength})(
                   <InputNumber
                     min={isType(["string" ? 0 : null])} {...valueToState(item.declaration, "minLength")}
+                    type={"number"}
                   />
                 )}
               </Form.Item>
@@ -178,6 +179,7 @@ class EntityTreeNodeEditable extends Component {
                   <InputNumber
                     min={this.state.item.declaration.minLength || 0}
                     {...valueToState(item.declaration, "maxLength")}
+                    type={"number"}
                   />
                 )}
               </Form.Item>

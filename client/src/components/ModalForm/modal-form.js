@@ -14,7 +14,7 @@ const ModalForm = Form.create()(
     }
 
     render() {
-      const { onCancel, form, okText, title, confirmLoading, content } = this.props;
+      const { onCancel, form, okText, title, confirmLoading, content, width } = this.props;
       return (
         <Modal
           title={title}
@@ -23,6 +23,7 @@ const ModalForm = Form.create()(
           confirmLoading={confirmLoading}
           onOk={ () => this.submit() }
           visible={!!content}
+          width={width}
         >
           <Form onSubmit={() => this.submit()}>
             { (content(form)) }

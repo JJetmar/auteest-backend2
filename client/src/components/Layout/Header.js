@@ -29,23 +29,6 @@ class Header extends PureComponent {
     } = this.props
 
     const rightContent = [
-      <Menu key="user" mode="horizontal" onClick={this.handleClickMenu}>
-        <SubMenu
-          title={
-            <Fragment>
-              <span style={{ color: '#999', marginRight: 4 }}>
-                <Trans>Hi,</Trans>
-              </span>
-              <span>{username}</span>
-              <Avatar style={{ marginLeft: 8 }} src={avatar} />
-            </Fragment>
-          }
-        >
-          <Menu.Item key="SignOut">
-            <Trans>Sign out</Trans>
-          </Menu.Item>
-        </SubMenu>
-      </Menu>,
     ]
 
     if (config.i18n) {
@@ -78,61 +61,6 @@ class Header extends PureComponent {
         </Menu>
       )
     }
-
-    rightContent.unshift(
-      <Popover
-        placement="bottomRight"
-        trigger="click"
-        key="notifications"
-        overlayClassName={styles.notificationPopover}
-        getPopupContainer={() => document.querySelector('#layoutHeader')}
-        content={
-          <div className={styles.notification}>
-            <List
-              itemLayout="horizontal"
-              dataSource={notifications}
-              locale={{
-                emptyText: <Trans>You have viewed all notifications.</Trans>,
-              }}
-              renderItem={item => (
-                <List.Item className={styles.notificationItem}>
-                  <List.Item.Meta
-                    title={
-                      <Ellipsis tooltip lines={1}>
-                        {item.title}
-                      </Ellipsis>
-                    }
-                    description={moment(item.date).fromNow()}
-                  />
-                  <Icon
-                    style={{ fontSize: 10, color: '#ccc' }}
-                    type="right"
-                    theme="outlined"
-                  />
-                </List.Item>
-              )}
-            />
-            {notifications.length ? (
-              <div
-                onClick={onAllNotificationsRead}
-                className={styles.clearButton}
-              >
-                <Trans>Clear notifications</Trans>
-              </div>
-            ) : null}
-          </div>
-        }
-      >
-        <Badge
-          count={notifications.length}
-          dot
-          offset={[-10, 10]}
-          className={styles.iconButton}
-        >
-          <Icon className={styles.iconFont} type="bell" />
-        </Badge>
-      </Popover>
-    )
 
     return (
       <Layout.Header

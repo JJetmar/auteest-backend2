@@ -1,0 +1,18 @@
+{
+  "Create User": {
+    "origin": [
+      [
+        "src/pages/user/index.js",
+        47
+      ]
+    ]
+  },
+  "Update User": {
+    "origin": [
+      [
+        "src/pages/user/index.js",
+        47
+      ]
+    ]
+  }
+}

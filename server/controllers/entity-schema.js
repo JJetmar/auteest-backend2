@@ -1,5 +1,4 @@
 const { model: EntitySchema } = require('../models/entity-schema');
-const { model: EntitySchemaAttribute } = require('../models/entity-schema-attribute');
 
 const getAttributePath = (attribute, attributes) => {
   let currentAttribute = attribute;
@@ -82,7 +81,8 @@ exports.createEntitySchema = async (ctx, next) => {
 exports.getEntitySchema = async (ctx, next) => {
   const entitySchema = (await EntitySchema.findById(ctx.params.id));
   if (!entitySchema) {
-    ctx.throw(400, `Entity schema with specified id could not be found.`, { id: ctx.params.id });
+    ctx.throw(400, `Entitydelete schema with specified id could not be found.`, { id: ctx.params.id });
+    return
   }
 
   ctx.return = { data: entitySchema };

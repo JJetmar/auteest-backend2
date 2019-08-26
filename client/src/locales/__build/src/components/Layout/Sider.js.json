@@ -1,0 +1,26 @@
+{
+  "Switch Theme": {
+    "origin": [
+      [
+        "src/components/Layout/Sider.js",
+        61
+      ]
+    ]
+  },
+  "Dark": {
+    "origin": [
+      [
+        "src/components/Layout/Sider.js",
+        69
+      ]
+    ]
+  },
+  "Light": {
+    "origin": [
+      [
+        "src/components/Layout/Sider.js",
+        70
+      ]
+    ]
+  }
+}

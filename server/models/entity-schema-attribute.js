@@ -23,14 +23,12 @@ const objectSchema = {
     },
     simpleTypes: {
       enum: [
-        "array",
         "boolean",
         "integer",
         "null",
         "number",
         "object",
-        "string",
-        "reference"
+        "string"
       ]
     },
     stringArray: {

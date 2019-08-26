@@ -12,8 +12,30 @@ const routeList = [
   {
     id: '600',
     name: 'Entity schemas',
+    cs: { name: 'Entitní schémata' },
     icon: 'hdd',
     route: '/entity-schemas',
+  },
+  {
+    id: '700',
+    name: 'Tests',
+    cs: { name: 'Testy' },
+    icon: 'experiment',
+    route: '/tests',
+  },
+  {
+    id: '800',
+    name: 'Test results',
+    cs: { name: 'Výsledky testů' },
+    icon: 'flag',
+    route: '/test-results',
+  },
+  {
+    id: '900',
+    name: 'Public REST API',
+    cs: { name: 'Veřejné REST API' },
+    icon: 'radar-chart',
+    route: '/public-rest-api',
   },
 ];
 export default {
@@ -28,16 +50,7 @@ export default {
     locationQuery: {},
     theme: 'dark',
     collapsed: store.get('collapsed') || false,
-    notifications: [
-      {
-        title: 'New User is registered.',
-        date: new Date(Date.now() - 10000000),
-      },
-      {
-        title: 'Application has been approved.',
-        date: new Date(Date.now() - 50000000),
-      },
-    ],
+    notifications: [],
   },
   subscriptions: {
     setup({ dispatch }) {
@@ -54,10 +67,10 @@ export default {
           routeList
         },
       });
-
+/*
       router.push({
         pathname: '/entity-schemas',
-      })
+      })*/
     }
   },
   reducers: {

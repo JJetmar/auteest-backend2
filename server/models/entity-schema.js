@@ -10,6 +10,7 @@ const objectSchema = {
   properties: {
     name: {
       type: "string",
+      pattern: "^[a-zA-Z](-?[0-9a-zA-Z]+)*$",
       minLength: 1
     },
     description: {
@@ -32,6 +33,7 @@ const objectSchema = {
           },
           name: {
             type: "string",
+            pattern: "^[a-zA-Z](-?[0-9a-zA-Z]+)*$",
             minLength: 1
           },
           description: {
@@ -43,10 +45,18 @@ const objectSchema = {
             default: false
           },
           declaration: {
-            oneOf: [
-              { type: "null" },
-              { $ref: EntitySchemaAttribute.schemas.model }
-            ]
+            type: "object",
+            properties: {
+              maxLength: {
+                type: "number"
+              },
+              minLength: {
+                type: "number"
+              },
+              regexp:  {
+                type: "string"
+              }
+            }
           }
         },
         required: ['name', 'pseudoId'],

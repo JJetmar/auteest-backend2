@@ -1,0 +1,34 @@
+{
+  "Hi,": {
+    "origin": [
+      [
+        "src/components/Layout/Header.js",
+        37
+      ]
+    ]
+  },
+  "Sign out": {
+    "origin": [
+      [
+        "src/components/Layout/Header.js",
+        45
+      ]
+    ]
+  },
+  "You have viewed all notifications.": {
+    "origin": [
+      [
+        "src/components/Layout/Header.js",
+        95
+      ]
+    ]
+  },
+  "Clear notifications": {
+    "origin": [
+      [
+        "src/components/Layout/Header.js",
+        120
+      ]
+    ]
+  }
+}

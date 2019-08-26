@@ -1,0 +1,114 @@
+{
+  "Are you sure delete this record?": {
+    "origin": [
+      [
+        "src/pages/user/components/List.js",
+        20
+      ]
+    ]
+  },
+  "Avatar": {
+    "origin": [
+      [
+        "src/pages/user/components/List.js",
+        33
+      ]
+    ]
+  },
+  "Name": {
+    "origin": [
+      [
+        "src/pages/user/components/List.js",
+        41
+      ]
+    ]
+  },
+  "NickName": {
+    "origin": [
+      [
+        "src/pages/user/components/List.js",
+        47
+      ]
+    ]
+  },
+  "Age": {
+    "origin": [
+      [
+        "src/pages/user/components/List.js",
+        52
+      ]
+    ]
+  },
+  "Gender": {
+    "origin": [
+      [
+        "src/pages/user/components/List.js",
+        57
+      ]
+    ]
+  },
+  "Phone": {
+    "origin": [
+      [
+        "src/pages/user/components/List.js",
+        63
+      ]
+    ]
+  },
+  "Email": {
+    "origin": [
+      [
+        "src/pages/user/components/List.js",
+        68
+      ]
+    ]
+  },
+  "Address": {
+    "origin": [
+      [
+        "src/pages/user/components/List.js",
+        73
+      ]
+    ]
+  },
+  "CreateTime": {
+    "origin": [
+      [
+        "src/pages/user/components/List.js",
+        78
+      ]
+    ]
+  },
+  "Operation": {
+    "origin": [
+      [
+        "src/pages/user/components/List.js",
+        83
+      ]
+    ]
+  },
+  "Update": {
+    "origin": [
+      [
+        "src/pages/user/components/List.js",
+        91
+      ]
+    ]
+  },
+  "Delete": {
+    "origin": [
+      [
+        "src/pages/user/components/List.js",
+        92
+      ]
+    ]
+  },
+  "Total {total} Items": {
+    "origin": [
+      [
+        "src/pages/user/components/List.js",
+        105
+      ]
+    ]
+  }
+}

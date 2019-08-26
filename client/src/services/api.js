@@ -1,11 +1,4 @@
 export default {
-  queryRouteList: '/routes',
-
-  queryUserInfo: '/user',
-  logoutUser: '/user/logout',
-  loginUser: 'POST /user/login',
-
-  queryUser: '/user/:id',
 
   entitySchemaGet: '/entity-schema/:id',
   entitySchemaList: '/entity-schema/list/:page/:pageSize',
@@ -13,13 +6,14 @@ export default {
   entitySchemaCreate: 'POST /entity-schema',
   entitySchemaDelete: 'DELETE /entity-schema/:id',
 
-  queryUserList: '/users',
-  updateUser: 'Patch /user/:id',
-  createUser: 'POST /user',
-  removeUser: 'DELETE /user/:id',
-  removeUserList: 'POST /users/delete',
+  testGet: '/test/:id',
+  testRun: 'POST /test/:id/run',
+  testList: '/test/list/:page/:pageSize',
+  testUpdate: 'PUT /test/:id',
+  testCreate: 'POST /test',
+  testDelete: 'DELETE /test/:id',
 
-  queryPostList: '/posts',
-
-  queryDashboard: '/dashboard',
+  testResultsGet: '/test-result/:id',
+  testResultsList: '/test-result/list/:page/:pageSize',
+  testResultsDelete: 'DELETE /test-result/:id',
 };

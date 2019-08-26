@@ -1,0 +1,10 @@
+{
+  "entities.addAttribute": {
+    "origin": [
+      [
+        "src/components/EntityTree/EntityTreeNodeAdd.js",
+        9
+      ]
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "Username": {
+    "origin": [
+      [
+        "src/pages/login/index.js",
+        70
+      ],
+      [
+        "src/pages/login/index.js",
+        99
+      ]
+    ]
+  },
+  "Password": {
+    "origin": [
+      [
+        "src/pages/login/index.js",
+        85
+      ],
+      [
+        "src/pages/login/index.js",
+        103
+      ]
+    ]
+  },
+  "Sign in": {
+    "origin": [
+      [
+        "src/pages/login/index.js",
+        95
+      ]
+    ]
+  }
+}

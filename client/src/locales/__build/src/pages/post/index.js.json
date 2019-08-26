@@ -1,0 +1,18 @@
+{
+  "Publised": {
+    "origin": [
+      [
+        "src/pages/post/index.js",
+        62
+      ]
+    ]
+  },
+  "Unpublished": {
+    "origin": [
+      [
+        "src/pages/post/index.js",
+        68
+      ]
+    ]
+  }
+}
