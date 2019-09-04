@@ -18,15 +18,18 @@ const alwaysPostForSoap = (test) => {
 const doTestRun = async (test, entitySchema, variation) => {
   const result = {};
   const requestJsonSchema = entitySchemaToJsonSchema(entitySchema, variation);
-  const jsonInput = await jsf.resolve(requestJsonSchema, variation);
+  result.request = await jsf.resolve(requestJsonSchema, variation);
 
   const options = {
     url: test.endpoint,
     method: test.httpMethod,
     headers: {
+      'Accept': 'application/json',
       'Accept-Charset': 'utf-8',
       'User-Agent': 'autotest'
-    }
+    },
+    json: test.type === "rest",
+    body: result.request
   };
 
   if (test.type === "soap") {
@@ -40,7 +43,6 @@ const doTestRun = async (test, entitySchema, variation) => {
     options.json = true;
   }
 
-  options.body = result.request;
 
   const waitForResponse = new Promise(resolve => {
     result.start = new Date();
@@ -49,7 +51,7 @@ const doTestRun = async (test, entitySchema, variation) => {
       result.duration = result.end.getTime() - result.start.getTime();
       result.response = body || err;
       result.status = res ? res.statusCode : 500;
-      result.valid = (!variation.includes("N") === result.status >= 200 && result.status < 300);
+      result.valid = (!variation.includes("N") === res.status >= 200 && res.status < 300);
       resolve(result);
     });
   });
@@ -163,6 +165,8 @@ exports.runTest = async (ctx, next) => {
   testResult.end = new Date();
   testResult.duration = testResult.end.getDate() - testResult.start.getDate();
   const restResulty = await new TestResult(testResult);
+
+  Mustache.render()
 
   ctx.return = await restResulty.save();
   await next();
