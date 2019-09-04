@@ -1,0 +1,41 @@
+version: '3'
+services:
+  client:
+    container_name: autotest-frontend
+    restart: always
+    volumes: ['./client/:/usr/src/app']
+    build:
+      context: './client'
+      dockerfile:  './Dockerfile'
+    ports:
+      - '8080:7000'
+    links:
+      - server
+  server:
+    container_name: autotest-backend
+    restart: always
+    volumes: ['./server:/usr/src/app']
+    build:
+      context: './server'
+      dockerfile:  './Dockerfile'
+    ports:
+      - '3000:3000'
+      - '9229:9229'
+    links:
+      - mongo
+  test-server:
+    container_name: test-server
+    restart: always
+    volumes: ['./test-server:/usr/src/app']
+    build:
+      context: './test-server'
+      dockerfile:  './Dockerfile'
+    ports:
+      - '4000:4000'
+  mongo:
+    container_name: autotest-mongo
+    image: mongo
+    ports:
+      - '27017:27017'
+      
+      
