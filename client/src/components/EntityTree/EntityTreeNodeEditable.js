@@ -162,7 +162,7 @@ class EntityTreeNodeEditable extends Component {
         }
         {/* DATA TYPE: INTEGER or STRING */}
         {
-          <Row hidden={!isType(["string", "integer", "number"])}>
+          <Row hidden={!isType(["string"])}>
             <Col span={12}>
               <Form.Item label="Minimum" labelCol={{span: 12}} wrapperCol={{span: 12}} style={{ marginBottom: 0 }}>
                 {getFieldDecorator(`attributes[${index}].declaration.minLength`, { initialValue: item.declaration.minLength})(
@@ -186,6 +186,32 @@ class EntityTreeNodeEditable extends Component {
             </Col>
           </Row>
         }
+        {/* DATA TYPE: INTEGER or NUMBER*/}
+          {
+          <Row hidden={!isType(["integer", "number"])}>
+          <Col span={12}>
+            <Form.Item label="Minimum" labelCol={{span: 12}} wrapperCol={{span: 12}} style={{ marginBottom: 0 }}>
+            {getFieldDecorator(`attributes[${index}].declaration.minimum`, { initialValue: item.declaration.minimum})(
+            <InputNumber
+              min={isType(["string" ? 0 : null])} {...valueToState(item.declaration, "minimum")}
+              type={"number"}
+              />
+            )}
+          </Form.Item>
+          </Col>
+          <Col span={12}>
+            <Form.Item label="Maximum" labelCol={{span: 12}} wrapperCol={{span: 12}} style={{ marginBottom: 0 }}>
+            {getFieldDecorator(`attributes[${index}].declaration.maximum`, { initialValue: item.declaration.maximum})(
+            <InputNumber
+              min={this.state.item.declaration.minimum || 0}
+              {...valueToState(item.declaration, "maximum")}
+              type={"number"}
+              />
+            )}
+          </Form.Item>
+          </Col>
+          </Row>
+          }
         </div>
       </div>
     );

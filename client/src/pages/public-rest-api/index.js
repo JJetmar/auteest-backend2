@@ -56,7 +56,7 @@ class PublicRestApi extends Component {
             <Page inner>
               <Row type="flex" justify="space-between">
                 <Col>
-                  <Title><Trans>Entity schemas</Trans></Title>
+                  <Title><Trans>Public REST APIs</Trans></Title>
                 </Col>
                 <Col>
                   <Button type="primary" icon="plus" size="large" onClick={() => this.showModal(entitySchemaModal.CREATE)}> <Trans>Add item</Trans></Button>
